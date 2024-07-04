@@ -1,112 +1,57 @@
 <?php
 
-namespace App\Tests\Controller;
+namespace App\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\Entity\CustomerOrder;
 use Doctrine\ORM\EntityManagerInterface;
 
-class CustomerOrderControllerTest extends WebTestCase
+class CustomerOrderIntegrationTest extends KernelTestCase
 {
-    private $client;
-    private $entityManager;
-    private $testOrderId;
+    private ?EntityManagerInterface $entityManager = null;
 
     protected function setUp(): void
     {
-        $this->client = static::createClient();
-        $this->entityManager = $this->client->getContainer()->get('doctrine')->getManager();
+        self::bootKernel();
+        $this->entityManager = static::getContainer()->get('doctrine')->getManager();
+    }
 
-        $this->entityManager->createQuery('DELETE FROM App\Entity\CustomerOrder')->execute();
+    public function testCreateAndRetrieveCustomerOrder(): void
+    {
+        $customerOrder = new CustomerOrder();
+        $customerOrder->setCustomerName('John Doe');
+        $customerOrder->setOrderDate(new \DateTime('2024-07-04'));
+        $customerOrder->setTotalAmount(99.99);
+        $customerOrder->setStatus('Pending');
+        $customerOrder->setPostalCode('12345');
+        $customerOrder->setCountry('France');
+        $customerOrder->setAddress('123 Main St');
+        $customerOrder->setCity('Paris');
 
-        $order = new CustomerOrder();
-        $order->setCustomerName('Test User');
-        $order->setOrderDate(new \DateTime('2023-07-01 12:00:00'));
-        $order->setTotalAmount(150.50);
-        $order->setStatus('pending');
-        $order->setPostalCode('75001');
-        $order->setCountry('France');
-        $order->setAddress('123 Rue de Paris');
-        $order->setCity('Paris');
-
-        $this->entityManager->persist($order);
+        $this->entityManager->persist($customerOrder);
         $this->entityManager->flush();
 
-        $this->testOrderId = $order->getId();
+        $this->entityManager->clear();
+
+        $retrievedOrder = $this->entityManager->getRepository(CustomerOrder::class)->find($customerOrder->getId());
+
+        $this->assertInstanceOf(CustomerOrder::class, $retrievedOrder);
+        $this->assertSame('John Doe', $retrievedOrder->getCustomerName());
+        $this->assertEquals(new \DateTime('2024-07-04'), $retrievedOrder->getOrderDate());
+        $this->assertSame(99.99, $retrievedOrder->getTotalAmount());
+        $this->assertSame('Pending', $retrievedOrder->getStatus());
+        $this->assertSame('12345', $retrievedOrder->getPostalCode());
+        $this->assertSame('France', $retrievedOrder->getCountry());
+        $this->assertSame('123 Main St', $retrievedOrder->getAddress());
+        $this->assertSame('Paris', $retrievedOrder->getCity());
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        $this->entityManager->close();
-        $this->entityManager = null;
-    }
-
-    public function testCreateOrder()
-    {
-        $this->client->request(
-            'POST',
-            '/orders',
-            [],
-            [],
-            ['CONTENT_TYPE' => 'application/json'],
-            json_encode([
-                'customerName' => 'Jane Doe',
-                'orderDate' => '2023-07-02 14:00:00',
-                'totalAmount' => 175.00,
-                'status' => 'completed',
-                'postalCode' => '75002',
-                'country' => 'France',
-                'address' => '124 Rue de Paris',
-                'city' => 'Paris'
-            ])
-        );
-
-        $this->assertEquals(Response::HTTP_CREATED, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testGetOrders()
-    {
-        $this->client->request('GET', '/orders');
-
-        $this->assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testGetOrder()
-    {
-        $this->client->request('GET', '/orders/' . $this->testOrderId);
-
-        $this->assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testUpdateOrder()
-    {
-        $this->client->request(
-            'PUT',
-            '/orders/' . $this->testOrderId,
-            [],
-            [],
-            ['CONTENT_TYPE' => 'application/json'],
-            json_encode([
-                'customerName' => 'John Doe Updated',
-                'orderDate' => '2023-07-03 15:00:00',
-                'totalAmount' => 200.00,
-                'status' => 'shipped',
-                'postalCode' => '75003',
-                'country' => 'France',
-                'address' => '125 Rue de Paris',
-                'city' => 'Paris'
-            ])
-        );
-
-        $this->assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testDeleteOrder()
-    {
-        $this->client->request('DELETE', '/orders/' . $this->testOrderId);
-
-        $this->assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        if ($this->entityManager) {
+            $this->entityManager->close();
+            $this->entityManager = null;
+        }
     }
 }

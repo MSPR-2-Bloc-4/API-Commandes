@@ -2,49 +2,42 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\CustomerOrderRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CustomerOrderRepository::class)]
+#[ApiResource]
 class CustomerOrder
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['order:read', 'order:write'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['order:read', 'order:write'])]
     private ?string $customerName = null;
 
-    #[ORM\Column(type: 'datetime')]
-    #[Groups(['order:read', 'order:write'])]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $orderDate = null;
 
-    #[ORM\Column(type: 'float')]
-    #[Groups(['order:read', 'order:write'])]
+    #[ORM\Column]
     private ?float $totalAmount = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['order:read', 'order:write'])]
     private ?string $status = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['order:read', 'order:write'])]
     private ?string $postalCode = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['order:read', 'order:write'])]
     private ?string $country = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['order:read', 'order:write'])]
     private ?string $address = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['order:read', 'order:write'])]
     private ?string $city = null;
 
     public function getId(): ?int
@@ -57,9 +50,10 @@ class CustomerOrder
         return $this->customerName;
     }
 
-    public function setCustomerName(string $customerName): self
+    public function setCustomerName(string $customerName): static
     {
         $this->customerName = $customerName;
+
         return $this;
     }
 
@@ -68,9 +62,10 @@ class CustomerOrder
         return $this->orderDate;
     }
 
-    public function setOrderDate(\DateTimeInterface $orderDate): self
+    public function setOrderDate(\DateTimeInterface $orderDate): static
     {
         $this->orderDate = $orderDate;
+
         return $this;
     }
 
@@ -79,9 +74,10 @@ class CustomerOrder
         return $this->totalAmount;
     }
 
-    public function setTotalAmount(float $totalAmount): self
+    public function setTotalAmount(float $totalAmount): static
     {
         $this->totalAmount = $totalAmount;
+
         return $this;
     }
 
@@ -90,9 +86,10 @@ class CustomerOrder
         return $this->status;
     }
 
-    public function setStatus(string $status): self
+    public function setStatus(string $status): static
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -101,9 +98,10 @@ class CustomerOrder
         return $this->postalCode;
     }
 
-    public function setPostalCode(string $postalCode): self
+    public function setPostalCode(string $postalCode): static
     {
         $this->postalCode = $postalCode;
+
         return $this;
     }
 
@@ -112,9 +110,10 @@ class CustomerOrder
         return $this->country;
     }
 
-    public function setCountry(string $country): self
+    public function setCountry(string $country): static
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -123,9 +122,10 @@ class CustomerOrder
         return $this->address;
     }
 
-    public function setAddress(string $address): self
+    public function setAddress(string $address): static
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -134,9 +134,10 @@ class CustomerOrder
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    public function setCity(string $city): static
     {
         $this->city = $city;
+
         return $this;
     }
 }
