@@ -2,15 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/MSPR-2-Bloc-4/API-Clients.git', branch: 'master'
-            }
-        }
 
         stage('Composer install') {
             steps {
-                sh 'composer'
+                sh 'composer install'
             }
         }
 
