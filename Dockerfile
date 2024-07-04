@@ -21,9 +21,6 @@ COPY . /var/www/html
 # Copier la configuration Apache
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 
-# Installer les dépendances de l'application
-RUN composer install
-
 # Changer le propriétaire des fichiers pour éviter les problèmes de permissions
 RUN chown -R www-data:www-data /var/www/html
 
