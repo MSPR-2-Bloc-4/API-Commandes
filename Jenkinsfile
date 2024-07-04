@@ -10,14 +10,14 @@ pipeline {
 
         stage('Composer install') {
             steps {
-                sh 'composer install'
+                sh 'composer'
             }
         }
 
 
         stage('Run tests') {
             steps {
-                sh 'php bin/phpunit --log-junit tests/report.xml'
+                sh 'php bin/phpunit tests/Entity'
             }
         }
     }

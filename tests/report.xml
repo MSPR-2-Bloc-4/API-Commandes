@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="6" assertions="8" errors="5" warnings="0" failures="0" skipped="0" time="4.467205">
+    <testsuite name="Project Test Suite" tests="6" assertions="8" errors="5" warnings="0" failures="0" skipped="0" time="4.467205">
+      <testsuite name="App\Tests\Controller\CustomerOrderControllerTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php" tests="5" assertions="0" errors="5" warnings="0" failures="0" skipped="0" time="4.453106">
+        <testcase name="testCreateOrder" class="App\Tests\Controller\CustomerOrderControllerTest" classname="App.Tests.Controller.CustomerOrderControllerTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php" line="46" assertions="0" time="4.433015">
+          <error type="Doctrine\DBAL\Exception\ConnectionException">App\Tests\Controller\CustomerOrderControllerTest::testCreateOrder
+Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for database failed: nodename nor servname provided, or not known
+
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Driver/API/MySQL/ExceptionConverter.php:101
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1939
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1887
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:380
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:453
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:411
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:318
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:661
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:221
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:245
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:935
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:891
+/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php:21
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/phpunit/phpunit/phpunit:107</error>
+        </testcase>
+        <testcase name="testGetOrders" class="App\Tests\Controller\CustomerOrderControllerTest" classname="App.Tests.Controller.CustomerOrderControllerTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php" line="69" assertions="0" time="0.007938">
+          <error type="Doctrine\DBAL\Exception\ConnectionException">App\Tests\Controller\CustomerOrderControllerTest::testGetOrders
+Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for database failed: nodename nor servname provided, or not known
+
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Driver/API/MySQL/ExceptionConverter.php:101
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1939
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1887
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:380
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:453
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:411
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:318
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:661
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:221
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:245
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:935
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:891
+/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php:21
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/phpunit/phpunit/phpunit:107</error>
+        </testcase>
+        <testcase name="testGetOrder" class="App\Tests\Controller\CustomerOrderControllerTest" classname="App.Tests.Controller.CustomerOrderControllerTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php" line="76" assertions="0" time="0.003987">
+          <error type="Doctrine\DBAL\Exception\ConnectionException">App\Tests\Controller\CustomerOrderControllerTest::testGetOrder
+Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for database failed: nodename nor servname provided, or not known
+
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Driver/API/MySQL/ExceptionConverter.php:101
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1939
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1887
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:380
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:453
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:411
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:318
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:661
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:221
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:245
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:935
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:891
+/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php:21
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/phpunit/phpunit/phpunit:107</error>
+        </testcase>
+        <testcase name="testUpdateOrder" class="App\Tests\Controller\CustomerOrderControllerTest" classname="App.Tests.Controller.CustomerOrderControllerTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php" line="83" assertions="0" time="0.004085">
+          <error type="Doctrine\DBAL\Exception\ConnectionException">App\Tests\Controller\CustomerOrderControllerTest::testUpdateOrder
+Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for database failed: nodename nor servname provided, or not known
+
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Driver/API/MySQL/ExceptionConverter.php:101
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1939
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1887
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:380
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:453
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:411
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:318
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:661
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:221
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:245
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:935
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:891
+/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php:21
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/phpunit/phpunit/phpunit:107</error>
+        </testcase>
+        <testcase name="testDeleteOrder" class="App\Tests\Controller\CustomerOrderControllerTest" classname="App.Tests.Controller.CustomerOrderControllerTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php" line="106" assertions="0" time="0.004082">
+          <error type="Doctrine\DBAL\Exception\ConnectionException">App\Tests\Controller\CustomerOrderControllerTest::testDeleteOrder
+Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for database failed: nodename nor servname provided, or not known
+
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Driver/API/MySQL/ExceptionConverter.php:101
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1939
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:1887
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:380
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:453
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:411
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/dbal/src/Connection.php:318
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:661
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:221
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/Query.php:245
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:935
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/doctrine/orm/src/AbstractQuery.php:891
+/Users/p.rouchaud/Downloads/API-Commandes/tests/Controller/CustomerOrderControllerTest.php:21
+/Users/p.rouchaud/Downloads/API-Commandes/vendor/phpunit/phpunit/phpunit:107</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="App\Tests\Entity\CustomerOrderTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Entity/CustomerOrderTest.php" tests="1" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.014099">
+        <testcase name="testCustomerOrderEntity" class="App\Tests\Entity\CustomerOrderTest" classname="App.Tests.Entity.CustomerOrderTest" file="/Users/p.rouchaud/Downloads/API-Commandes/tests/Entity/CustomerOrderTest.php" line="10" assertions="8" time="0.014099"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
