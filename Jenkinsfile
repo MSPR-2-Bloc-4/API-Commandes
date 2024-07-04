@@ -20,5 +20,12 @@ pipeline {
                 sh 'php bin/phpunit tests/Entity'
             }
         }
+
+        stage('Docker build') {
+            steps {
+                sh 'docker-compose up'
+                sh 'docker-compose exec web php bin/console debug:router'
+            }
+        }
     }
 }
