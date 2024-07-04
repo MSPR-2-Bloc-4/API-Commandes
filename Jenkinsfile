@@ -23,6 +23,7 @@ pipeline {
 
         stage('Docker build') {
             steps {
+                sh 'ls'
                 sh 'docker-compose up'
                 sh 'docker-compose exec web php bin/console debug:router'
             }
