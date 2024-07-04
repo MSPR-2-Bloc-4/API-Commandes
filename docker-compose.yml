@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - .:/var/www/html
     environment:
@@ -36,10 +36,13 @@ services:
     links:
       - database
     ports:
-      - "8081:80"
+      - "3000:80"
     environment:
       PMA_HOST: database
-      MYSQL_ROOT_PASSWORD: root_password
+      PMA_USER: symfony
+      PMA_PASSWORD: symfony_password
+    depends_on:
+      - database
 
 
 volumes:
